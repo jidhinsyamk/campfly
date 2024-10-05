@@ -1,6 +1,8 @@
 const express = require('express')
 const UserRegisterRouter = express.Router();
 const bcrypt = require('bcryptjs');
+const loginDB= require('../Models/LoginModel');
+const registerDB= require('../Models/UserRegisterModel');
 
 
 
