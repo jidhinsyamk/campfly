@@ -10,10 +10,10 @@ const UserRegisterSchema = new Schema({
      dob:{type:String,required:true},
      nationality:{type:String,required:true},
      occupation:{type:String,required:true},
-     adress:{type:String,required:true},
+     address:{type:String,required:true},
      contact:{type:String,required:true},
      emergencycontact:{type:String,required:true},
-     role:{type:String,reqired:true},
+      
      
  })
  const UserRegisterModel = mongoose.model('Userregister_tb',UserRegisterSchema)
