@@ -1,16 +1,16 @@
-const jwt = require('jsonwebtoken');
-module.exports = (req, res, next) => {
-  const checkAccess = req.userData.userRole;
+// const jwt = require('jsonwebtoken');
+// module.exports = (req, res, next) => {
+//   const checkAccess = req.userData.userRole;
 
-  if (!(checkAccess == 1)) {
-  return  res.status(401).json({
-      Error: true,
-      Success: false,
-      message: 'You do not have access',
-    });
-  } else {
-    next();
-  }
+//   if (!(checkAccess == 1)) {
+//   return  res.status(401).json({
+//       Error: true,
+//       Success: false,
+//       message: 'You do not have access',
+//     });
+//   } else {
+//     next();
+//   }
 
-  res.status(401).json({ message: 'Authorization Failed!' });
-};
+//   res.status(401).json({ message: 'Authorization Failed!' });
+// };
