@@ -2,6 +2,9 @@ var express=require('express')
 var mongoose=require('mongoose')
 const dotenv=require('dotenv')
 const cors=require('cors')
+const UserRegisterRouter = require('./Routes/UserRegisterRouter')
+const LoginRouter = require('./Routes/LoginRouter')
+
  
  
 
@@ -25,6 +28,9 @@ mongoose.connect(process.env.MONGO_URL)
     
 })
  
+app.use('/api/register',UserRegisterRouter)
+app.use('/api/login',LoginRouter)
+
 
 app.use(process.env.PORT,()=>{
     console.log('running on',process.env.PORT);

@@ -58,4 +58,4 @@ loginRouter.post('/login', async (req, res) => {
   }
 });
 
-module.exports =LoginRouter;
+module.exports=loginRouter;
