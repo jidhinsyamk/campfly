@@ -2,7 +2,7 @@ var express=require('express')
 var mongoose=require('mongoose')
 const dotenv=require('dotenv')
 const cors=require('cors')
-const UserRegisterRouter = require('./Routes/UserRegisterRouter')
+ 
 
 
 var app=express()
