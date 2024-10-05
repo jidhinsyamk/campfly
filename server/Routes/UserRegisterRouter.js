@@ -1,12 +1,12 @@
 const express = require('express')
-const registerRouter = express.Router();
+const UserRegisterRouter = express.Router();
 const bcrypt = require('bcryptjs');
 
 
 
-registerRouter.post('/userreg',async (req, res)=>{
+UserRegisterRouter.post('/userregister',async (req, res)=>{
     try{
-        const oldUser = await loginDB.findOne({email:req.body.email});
+        const oldUser = await loginDB.findOne({username:req.body.username});
         if(oldUser){
             return res
             .status(400)
@@ -24,7 +24,7 @@ registerRouter.post('/userreg',async (req, res)=>{
             });
         }
         let log ={
-            email:req.body.email,
+            username:req.body.username,
             password:hashedpassword,
             role:1,
     
@@ -32,11 +32,17 @@ registerRouter.post('/userreg',async (req, res)=>{
         const result = await loginDB(log).save();
         let reg={
             login_id:result._id,
-            name:req.body.name,
-            adress:req.body.adress,
-            // email:req.body.email,
+            firstname:req.body.firstname,
+            lastname:req.body.lastname,
+            gender:req.body.gender,
+            dob:req.body.dob,
+            nationality:req.body.nationality,
+            occupation:req.body.occupation,
+            address:req.body.address,
+            email:req.body.email,
             contact:req.body.contact,
-            age:req.body.age,
+            emergencycontact:req.body.emergencycontact,
+             
         };
         const result2 = await registerDB(reg).save();
         if (result2) {
@@ -54,6 +60,7 @@ registerRouter.post('/userreg',async (req, res)=>{
                error: true,
                message:'somthing went wrong'
             });
-        console.log(error);
+       
     }
 });
+module.exports=UserRegisterRouter;
